@@ -5,11 +5,11 @@ using namespace std;
 
 class Fraction
 {
-	int numerator;
-	int denominator;
-	int whole_part;
+	int numerator; //Делимое
+	int denominator; //Делитель
+	int whole_part; //Целая часть
 
-	void reduction()
+	void reduction()//Метод сокращения
 	{
 		int num = this->numerator, denom = this->denominator, vrem;
 		if (num < denom)
@@ -25,18 +25,18 @@ class Fraction
 		}
 		this->numerator = this->numerator / denom;
 		this->denominator = this->denominator / denom;
-	}
-	void wholepart()
+	} 
+	void wholepart()//Метод выделяющий целую часть
 	{
 		if (numerator > denominator)
 		{
 			whole_part = numerator / denominator;
 			this->numerator = numerator - denominator * whole_part;
 		}
-	}
+	}  
 public:
 	//				Constructors:
-	Fraction()
+	Fraction() //Конструктор по умолчанию
 	{
 		numerator = denominator = 1;
 		whole_part = 0;
@@ -44,7 +44,7 @@ public:
 		wholepart();
 		cout << "DefaultConstructor:\t\t" << this << endl;
 	}
-	Fraction(double numerator, double denominator)
+	Fraction(double numerator, double denominator) //Конструктор с параметрами
 	{
 		this->numerator = numerator;
 		this->denominator = denominator;
@@ -53,7 +53,7 @@ public:
 		wholepart();
 		cout << "Constructor:\t\t\t" << this << endl;
 	}
-	Fraction(const Fraction& other)
+	Fraction(const Fraction& other)// Конструктор копирования
 	{
 		this->numerator = other.numerator;
 		this->denominator = other.denominator;
@@ -62,12 +62,12 @@ public:
 		wholepart();
 		cout << "CopyConstructor:\t\t" << this << endl;
 	}
-	~Fraction()
+	~Fraction()// Деструктор
 	{
 		cout << "Destructor:\t\t\t" << this << endl;
 	}
 	//				Operators:
-	Fraction& operator=(const Fraction& other)
+	Fraction& operator=(const Fraction& other) //Оператор копирования
 	{
 		this->numerator = other.numerator;
 		this->denominator = other.denominator;
@@ -85,7 +85,7 @@ public:
 		wholepart();
 		return *this;
 	}
-	Fraction operator++(int)
+	Fraction operator++(int)//Постфиксный инкремент
 	{
 		Fraction old = *this;
 		numerator += denominator * whole_part;
@@ -134,6 +134,7 @@ public:
 	}
 };
 
+//				Overloaded Operators:
 Fraction operator+(const Fraction& left, const Fraction& right)
 {
 	return Fraction
@@ -171,7 +172,6 @@ void main()
 {
 	setlocale(LC_ALL, "Russian");
 
-	
 	Fraction A(5, 3);
 	A.print();
 
