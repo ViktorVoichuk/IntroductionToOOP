@@ -1,15 +1,15 @@
-#include <iostream>
+п»ї#include <iostream>
 
 using namespace std;
 #define delimiter "___________________________________________________________________________"
 
 class Fraction
 {
-	int numerator; //Делимое
-	int denominator; //Делитель
-	int whole_part; //Целая часть
+	int numerator; //Р”РµР»РёРјРѕРµ
+	int denominator; //Р”РµР»РёС‚РµР»СЊ
+	int whole_part; //Р¦РµР»Р°СЏ С‡Р°СЃС‚СЊ
 
-	void reduction()//Метод сокращения
+	void reduction()//РњРµС‚РѕРґ СЃРѕРєСЂР°С‰РµРЅРёСЏ
 	{
 		int num = this->numerator, denom = this->denominator, vrem;
 		if (num < denom)
@@ -26,7 +26,7 @@ class Fraction
 		this->numerator = this->numerator / denom;
 		this->denominator = this->denominator / denom;
 	} 
-	void wholepart()//Метод выделяющий целую часть
+	void wholepart()//РњРµС‚РѕРґ РІС‹РґРµР»СЏСЋС‰РёР№ С†РµР»СѓСЋ С‡Р°СЃС‚СЊ
 	{
 		if (numerator > denominator)
 		{
@@ -36,7 +36,7 @@ class Fraction
 	}  
 public:
 	//				Constructors:
-	Fraction() //Конструктор по умолчанию
+	Fraction() //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 	{
 		numerator = denominator = 1;
 		whole_part = 0;
@@ -44,7 +44,7 @@ public:
 		wholepart();
 		cout << "DefaultConstructor:\t\t" << this << endl;
 	}
-	Fraction(double numerator, double denominator) //Конструктор с параметрами
+	Fraction(double numerator, double denominator) //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 	{
 		this->numerator = numerator;
 		this->denominator = denominator;
@@ -53,7 +53,7 @@ public:
 		wholepart();
 		cout << "Constructor:\t\t\t" << this << endl;
 	}
-	Fraction(const Fraction& other)// Конструктор копирования
+	Fraction(const Fraction& other)// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	{
 		this->numerator = other.numerator;
 		this->denominator = other.denominator;
@@ -62,12 +62,12 @@ public:
 		wholepart();
 		cout << "CopyConstructor:\t\t" << this << endl;
 	}
-	~Fraction()// Деструктор
+	~Fraction()// Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	{
 		cout << "Destructor:\t\t\t" << this << endl;
 	}
 	//				Operators:
-	Fraction& operator=(const Fraction& other) //Оператор копирования
+	Fraction& operator=(const Fraction& other) //РћРїРµСЂР°С‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	{
 		this->numerator = other.numerator;
 		this->denominator = other.denominator;
@@ -75,7 +75,7 @@ public:
 		cout << "CopyAssignment:\t\t\t" << this << endl;
 		return *this;
 	}
-	Fraction& operator++()//Префиксный инкремент
+	Fraction& operator++()//РџСЂРµС„РёРєСЃРЅС‹Р№ РёРЅРєСЂРµРјРµРЅС‚
 	{
 		numerator += denominator * whole_part;
 		numerator++;
@@ -85,7 +85,7 @@ public:
 		wholepart();
 		return *this;
 	}
-	Fraction operator++(int)//Постфиксный инкремент
+	Fraction operator++(int)//РџРѕСЃС‚С„РёРєСЃРЅС‹Р№ РёРЅРєСЂРµРјРµРЅС‚
 	{
 		Fraction old = *this;
 		numerator += denominator * whole_part;
