@@ -44,7 +44,7 @@ public:
 		wholepart();
 		cout << "DefaultConstructor:\t\t" << this << endl;
 	}
-	Fraction(double numerator, double denominator) //Конструктор с параметрами
+	Fraction(int numerator, int denominator) //Конструктор с параметрами
 	{
 		this->numerator = numerator;
 		this->denominator = denominator;

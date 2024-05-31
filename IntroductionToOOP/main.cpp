@@ -277,6 +277,9 @@ void main()
 
 	//cout << (2 == 3) << endl;
 	cout << (Point(2, 3) == Point(2, 3)) << endl;
+	int a, b, c;
+	c = a + b;
+	
 }
 
 /*
