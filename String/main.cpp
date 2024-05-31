@@ -1,26 +1,26 @@
-#include<iostream>
+п»ї#include<iostream>
 using namespace std;
 
 class MyString
 {
 private:
-	char* str;//символы, которые мы передали в объект.
+	char* str;//СЃРёРјРІРѕР»С‹, РєРѕС‚РѕСЂС‹Рµ РјС‹ РїРµСЂРµРґР°Р»Рё РІ РѕР±СЉРµРєС‚.
 	int length;
 
 public:
 
-	MyString()//конструктор без параметров
+	MyString()//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
 	{
 		str = nullptr;
 		length = 0;
 	}
 
-	MyString(const char* str)//конструктор с параметрами
+	MyString(const char* str)//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 	{
-		length = strlen(str);//длинна строки
-		this->str = new char[length + 1] {};// создаем динамический массив где будет храниться наша строка +1 для \0
+		length = strlen(str);//РґР»РёРЅРЅР° СЃС‚СЂРѕРєРё
+		this->str = new char[length + 1] {};// СЃРѕР·РґР°РµРј РґРёРЅР°РјРёС‡РµСЃРєРёР№ РјР°СЃСЃРёРІ РіРґРµ Р±СѓРґРµС‚ С…СЂР°РЅРёС‚СЊСЃСЏ РЅР°С€Р° СЃС‚СЂРѕРєР° +1 РґР»СЏ \0
 
-		for (int i = 0; i < length; i++)// копируем символы строки в массив
+		for (int i = 0; i < length; i++)// РєРѕРїРёСЂСѓРµРј СЃРёРјРІРѕР»С‹ СЃС‚СЂРѕРєРё РІ РјР°СЃСЃРёРІ
 		{
 			this->str[i] = str[i];
 		}
@@ -31,7 +31,7 @@ public:
 		delete[] this->str;
 	}
 
-	MyString(const MyString& other)// конструктор копирования
+	MyString(const MyString& other)// РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	{
 		length = strlen(other.str);
 		this->str = new char[length + 1] {};
@@ -42,7 +42,7 @@ public:
 		}
 	}
 
-	MyString& operator =(const MyString& other)// оператор копирования
+	MyString& operator =(const MyString& other)// РѕРїРµСЂР°С‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	{
 		if (this == &other)return *this;
 		delete[] str;
@@ -58,19 +58,19 @@ public:
 		return *this;
 	}
 
-	MyString operator+(const MyString& other)// сложение строк
+	MyString operator+(const MyString& other)// СЃР»РѕР¶РµРЅРёРµ СЃС‚СЂРѕРє
 	{
-		MyString newStr;//временный объект
+		MyString newStr;//РІСЂРµРјРµРЅРЅС‹Р№ РѕР±СЉРµРєС‚
 
-		//количество символов в обеих строках
+		//РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРёРјРІРѕР»РѕРІ РІ РѕР±РµРёС… СЃС‚СЂРѕРєР°С…
 		int thisLength = strlen(this->str);
 		int otherLength = strlen(other.str);
 
 		newStr.length = thisLength + otherLength;
 
-		newStr.str = new char[thisLength + otherLength + 2] {};// место под новую строку
+		newStr.str = new char[thisLength + otherLength + 2] {};// РјРµСЃС‚Рѕ РїРѕРґ РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ
 
-		//копируем данные из 2х строк в новую строку
+		//РєРѕРїРёСЂСѓРµРј РґР°РЅРЅС‹Рµ РёР· 2С… СЃС‚СЂРѕРє РІ РЅРѕРІСѓСЋ СЃС‚СЂРѕРєСѓ
 		int i = 0;
 		for (; i < thisLength; i++)
 		{
