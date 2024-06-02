@@ -187,5 +187,4 @@ void main()
 	cout << delimiter << endl;
 	C++;
 	C.print();
-
 }
