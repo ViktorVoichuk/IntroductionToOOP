@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 #define Comments_debug
 
 using namespace std;
@@ -181,19 +181,19 @@ public:
 	}
 	
 	//				Methods:
-	Fraction& to_proper()// Выделение целой части
+	Fraction& to_proper()// Р’С‹РґРµР»РµРЅРёРµ С†РµР»РѕР№ С‡Р°СЃС‚Рё
 	{
 		integer += numerator / denominator;
 		numerator %= denominator;
 		return *this;
 	}
-	Fraction& to_improper()// перевод в дробь
+	Fraction& to_improper()// РїРµСЂРµРІРѕРґ РІ РґСЂРѕР±СЊ
 	{
 		numerator += integer * denominator;
 		integer = 0;
 		return *this;
 	}
-	Fraction inverted()const// переворот дроби
+	Fraction inverted()const// РїРµСЂРµРІРѕСЂРѕС‚ РґСЂРѕР±Рё
 	{
 		Fraction inverted = *this;
 		inverted.to_improper();
