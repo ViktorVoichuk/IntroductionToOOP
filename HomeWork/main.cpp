@@ -1,6 +1,6 @@
 //Home Work!
 
-#define HW1
+//#define HW1
 
 #ifndef HW1
 #include <iostream>

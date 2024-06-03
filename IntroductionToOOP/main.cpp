@@ -1,5 +1,5 @@
 ﻿//IntroductionToOOP
-
+//#pragma warning(disable:4326)
 #include <iostream>
 
 using namespace std;
@@ -150,14 +150,6 @@ Point operator/(const Point& left, const Point& right)
 bool operator==(const Point& left, const Point& right)
 {
 	return left.get_x() == right.get_x() && left.get_y() == right.get_y();
-	/*if (left.get_x() == right.get_x() && left.get_y() == right.get_y())
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}*/
 }
 
 #define STRUCT_POINT
@@ -172,7 +164,7 @@ void main()
 	setlocale(LC_ALL, "");
 
 #ifndef STRUCT_POINT
-	cout << "Hello OOP" << endl;
+		cout << "Hello OOP" << endl;
 	int a;	//Объявление переменной 'a' типа 'int'
 	Point A;//Объявление переменной 'A' типа 'Point'
 	//Создание объекта 'A' структуры 'Point'
@@ -277,10 +269,7 @@ void main()
 
 	//cout << (2 == 3) << endl;
 	cout << (Point(2, 3) == Point(2, 3)) << endl;
-	int a, b, c;
-	c = a + b;
-	
-}
+};
 
 /*
 ------------------------------------------------
