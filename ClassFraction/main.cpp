@@ -300,6 +300,7 @@ std::ostream& operator<<(std::ostream& os, const Fraction& obj)
 std::istream& operator>>(std::istream& is, Fraction& obj)
 {
 	int integer, numerator, denominator;
+	cout << "Fill in object" << endl;
 	cout << "Enter integer: ";
 	is >> integer;
 
@@ -428,7 +429,6 @@ void main()
 #ifndef STREAM_CHECK
 	Fraction A(2, 3, 4);
 
-	cout << "Fill in object" << endl;
 	cin >> A;
 
 	cout << A << endl;
