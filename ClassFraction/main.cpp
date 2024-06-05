@@ -1,6 +1,8 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include<iostream>
 #define Comments_debug
+#define delimetr		"_______________________________________________________________"
+#define double_delimetr "==============================================================="
 
 using namespace std;
 
@@ -355,7 +357,8 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 #define CONSTRUCTORS_CHECK
 #define ARITHMETICAL_OPERATORS_CHECK
 #define COMPARISON_OPERATORS_CHECK
-//#define STREAM_CHECK
+#define STREAM_CHECK
+#define TIPE_CONVERSIONS_BASICS
 
 void main()
 {
@@ -469,6 +472,26 @@ void main()
 	cout << A << endl;
 #endif // !STREAM_CHECK
 
+#ifndef TIPE_CONVERSIONS_BASICS
+	int a = 2;		//No conversions
+	double b = 3;	//Conversion from less to more
+	int c = b;		//Converse from more to less withaut dataloss
+	int d = 2.5;	//Cinverse from more to less with data loss
+
+#endif // !TIPE_CONVERSIONS_BASICS
+
+	Fraction A = 5;
+	cout << A << endl;
+
+	cout << double_delimetr << endl;
+	Fraction B; //defaul constructor
+
+	cout << delimetr << endl;
+
+	B = 8;
+	cout << B << endl;
+
+	cout << double_delimetr << endl;
 }
 
 
