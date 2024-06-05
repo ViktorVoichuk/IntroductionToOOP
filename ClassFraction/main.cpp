@@ -492,6 +492,7 @@ void main()
 	cout << B << endl;
 
 	cout << double_delimetr << endl;
+	cout << "GitHub test" << endl;
 }
 
 
