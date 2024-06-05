@@ -1,4 +1,5 @@
-﻿#include<iostream>
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
 #define Comments_debug
 
 using namespace std;
@@ -285,6 +286,13 @@ bool operator<=(const Fraction& left, const Fraction& right)
 	return !(left > right);
 }
 
+//Stream - поток
+//std - Standard namespase
+// :: - Scope operator (Оператор разрешения видимости - позволяет зайти в пространство имен)
+// сам по себе :: выводит нас в Globalscope (Глобальное пространство имен)
+// namespace (Пространство имен) как папка , а имя, расположенное в нем - как файл
+//ostream - output stream (поток вывода)
+//istream - input stream (поток ввода)
 std::ostream& operator<<(std::ostream& os, const Fraction& obj)
 {
 	if (obj.get_integer())os << obj.get_integer();
@@ -297,22 +305,49 @@ std::ostream& operator<<(std::ostream& os, const Fraction& obj)
 	else if (obj.get_integer() == 0) os << 0;
 	return os;
 }
+//std::istream& operator>>(std::istream& is, Fraction& obj)
+//{
+//	int integer, numerator, denominator;
+//	cout << "Fill in object" << endl;
+//	cout << "Enter integer: ";
+//	is >> integer;
+//
+//	cout << "Enter numerator: ";
+//	is >> numerator;
+//
+//	cout << "Enter denominator: ";
+//	is >> denominator;
+//
+//	obj.set_integer(integer);
+//	obj.set_numerator(numerator);
+//	obj.set_denominator(denominator);
+//
+//	return is;
+//}
 std::istream& operator>>(std::istream& is, Fraction& obj)
 {
-	int integer, numerator, denominator;
-	cout << "Fill in object" << endl;
-	cout << "Enter integer: ";
-	is >> integer;
+	cout << "Введите простую дробь: ";
+	const int SIZE = 64;
+	char buffer[SIZE]{};
+	//is >> buffer;
+	is.getline(buffer, SIZE);
+	int number[3];
+	int n = 0;
+	const char delimiters[] = "(/) +";
+	for (char* pch = strtok(buffer, delimiters); pch; pch = strtok(NULL, delimiters))
+		// Функция strtok() разделяет строку на токены
+		// Функция strtok() изменяет входную строку!!!
+		number[n++] = atoi(pch);
+		//Функция atoi()- "ASCII string to int" принимает строку и возвращает значение int найденную в этой строке.
+		//pch - pointer to character (указатель на символ)
+	for (int i = 0; i < n; i++) cout << number[i] << "\t"; cout << endl;
 
-	cout << "Enter numerator: ";
-	is >> numerator;
-
-	cout << "Enter denominator: ";
-	is >> denominator;
-
-	obj.set_integer(integer);
-	obj.set_numerator(numerator);
-	obj.set_denominator(denominator);
+	switch (n)
+	{
+	case 1: obj = Fraction(number[0]); break;
+	case 2: obj = Fraction(number[0],number[1]); break;
+	case 3: obj = Fraction(number[0],number[1],number[2]); break;
+	}
 
 	return is;
 }
