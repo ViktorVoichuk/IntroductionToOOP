@@ -54,7 +54,7 @@ public:
 #endif // Comments_debug
 
 	}
-	Fraction(int integer)
+	explicit Fraction(int integer)
 	{
 		this->integer = integer;
 		this->numerator = 0;
@@ -155,6 +155,12 @@ public:
 	Fraction& operator/=(const Fraction& other)
 	{
 		return *this = *this / other;
+	}
+
+	//				Type=cast operators:
+	explicit operator int()
+	{
+		return integer;
 	}
 
 	//				Methods:
@@ -359,6 +365,10 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 #define COMPARISON_OPERATORS_CHECK
 #define STREAM_CHECK
 #define TIPE_CONVERSIONS_BASICS
+#define CONVEERSIONS_FROM_OTHER_TO_CLASS
+#define CONVEERSIONS_FROM_CLASS_TO_OTHER
+#define CONVERSIONS_TASK_1
+#define CONVERSIONS_TASK_2
 
 void main()
 {
@@ -480,8 +490,10 @@ void main()
 
 #endif // !TIPE_CONVERSIONS_BASICS
 
-	Fraction A = 5; //Convertation from 'int' to 'Fraction'
-					//Single-Argument constructor
+#ifndef CONVEERSIONS_FROM_OTHER_TO_CLASS
+
+	Fraction A = (Fraction)5; //Convertation from 'int' to 'Fraction'
+	//Single-Argument constructor
 	cout << A << endl;
 
 	cout << double_delimetr << endl;
@@ -489,13 +501,29 @@ void main()
 
 	cout << delimetr << endl;
 
-	B = 8;		//Convertation from 'int' to 'Fraction'
-				//Single-Argument constructor
-				//Copy assignment
+	B = Fraction(8);		//Convertation from 'int' to 'Fraction'
+	//Single-Argument constructor
+	//Copy assignment
 	cout << B << endl;
 
 	cout << double_delimetr << endl;
-	
+#endif // !CONVEERSIONS_FROM_OTHER_TO_CLASS
+
+#ifndef CONVERSIONS_TASK_1
+	Fraction A(2, 3, 4);
+	cout << A << endl;
+
+	int a = (int)A;
+	double a = A;
+
+	cout << a << endl;
+#endif // !CONVERSIONS_TASK_1
+
+#ifndef CONVERSIONS_TASK_2
+	Fraction B = 2.75;
+	cout << B << endl;
+#endif // !CONVERSIONS_TASK_2
+
 }
 
 
