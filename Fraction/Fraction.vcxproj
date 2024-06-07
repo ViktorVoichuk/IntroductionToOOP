@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1e9fc2a3-2968-4e71-b153-68c2c6046056}</ProjectGuid>
-    <RootNamespace>ClassFraction</RootNamespace>
+    <ProjectGuid>{7e550847-e844-424f-9b21-cb0e624077d7}</ProjectGuid>
+    <RootNamespace>Fraction</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Fraction</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

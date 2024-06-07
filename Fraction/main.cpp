@@ -371,7 +371,7 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 #define TIPE_CONVERSIONS_BASICS
 #define CONVEERSIONS_FROM_OTHER_TO_CLASS
 #define CONVEERSIONS_FROM_CLASS_TO_OTHER
-#define CONVERSIONS_TASK_1
+//#define CONVERSIONS_TASK_1
 //#define CONVERSIONS_TASK_2
 
 void main()
@@ -529,5 +529,3 @@ void main()
 #endif // !CONVERSIONS_TASK_2
 
 }
-
-
