@@ -480,7 +480,8 @@ void main()
 
 #endif // !TIPE_CONVERSIONS_BASICS
 
-	Fraction A = 5;
+	Fraction A = 5; //Convertation from 'int' to 'Fraction'
+					//Single-Argument constructor
 	cout << A << endl;
 
 	cout << double_delimetr << endl;
@@ -488,11 +489,13 @@ void main()
 
 	cout << delimetr << endl;
 
-	B = 8;
+	B = 8;		//Convertation from 'int' to 'Fraction'
+				//Single-Argument constructor
+				//Copy assignment
 	cout << B << endl;
 
 	cout << double_delimetr << endl;
-	cout << "GitHub test" << endl;
+	
 }
 
 
