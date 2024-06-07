@@ -60,7 +60,25 @@ public:
 		this->numerator = 0;
 		this->denominator = 1;
 #ifndef Comments_debug
-		cout << "1ArgConstructor:\t" << this << endl;
+		cout << "1ArgConstructorINT:\t" << this << endl;
+#endif // Comments_debug
+	}
+	Fraction(const double a)
+	{
+		double temp = a;
+		int denom = 1;
+		this->integer = temp;
+		temp -= this->integer;
+		for (; int(temp) != temp;)
+		{
+			temp *= 10;
+			denom *= 10;
+		}
+		this->numerator = temp;
+		this->denominator = denom;
+		this->reduce();
+#ifndef Comments_debug
+		cout << "1ArgConstructorDOUBLE:\t" << this << endl;
 #endif // Comments_debug
 	}
 	Fraction(int numerator, int denominator)
@@ -161,6 +179,11 @@ public:
 	explicit operator int()
 	{
 		return integer;
+	}
+	explicit operator double()
+	{
+		this->to_improper();
+		return (double(numerator) / denominator);
 	}
 
 	//				Methods:
@@ -313,25 +336,6 @@ std::ostream& operator<<(std::ostream& os, const Fraction& obj)
 	else if (obj.get_integer() == 0) os << 0;
 	return os;
 }
-//std::istream& operator>>(std::istream& is, Fraction& obj)
-//{
-//	int integer, numerator, denominator;
-//	cout << "Fill in object" << endl;
-//	cout << "Enter integer: ";
-//	is >> integer;
-//
-//	cout << "Enter numerator: ";
-//	is >> numerator;
-//
-//	cout << "Enter denominator: ";
-//	is >> denominator;
-//
-//	obj.set_integer(integer);
-//	obj.set_numerator(numerator);
-//	obj.set_denominator(denominator);
-//
-//	return is;
-//}
 std::istream& operator>>(std::istream& is, Fraction& obj)
 {
 	cout << "Введите простую дробь: ";
@@ -346,15 +350,15 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 		// Функция strtok() разделяет строку на токены
 		// Функция strtok() изменяет входную строку!!!
 		number[n++] = atoi(pch);
-		//Функция atoi()- "ASCII string to int" принимает строку и возвращает значение int найденную в этой строке.
-		//pch - pointer to character (указатель на символ)
+	//Функция atoi()- "ASCII string to int" принимает строку и возвращает значение int найденную в этой строке.
+	//pch - pointer to character (указатель на символ)
 	for (int i = 0; i < n; i++) cout << number[i] << "\t"; cout << endl;
 
 	switch (n)
 	{
 	case 1: obj = Fraction(number[0]); break;
-	case 2: obj = Fraction(number[0],number[1]); break;
-	case 3: obj = Fraction(number[0],number[1],number[2]); break;
+	case 2: obj = Fraction(number[0], number[1]); break;
+	case 3: obj = Fraction(number[0], number[1], number[2]); break;
 	}
 
 	return is;
@@ -368,7 +372,7 @@ std::istream& operator>>(std::istream& is, Fraction& obj)
 #define CONVEERSIONS_FROM_OTHER_TO_CLASS
 #define CONVEERSIONS_FROM_CLASS_TO_OTHER
 #define CONVERSIONS_TASK_1
-#define CONVERSIONS_TASK_2
+//#define CONVERSIONS_TASK_2
 
 void main()
 {
@@ -513,8 +517,8 @@ void main()
 	Fraction A(2, 3, 4);
 	cout << A << endl;
 
-	int a = (int)A;
-	double a = A;
+	//int a = (int)A;
+	double a = (double)A;
 
 	cout << a << endl;
 #endif // !CONVERSIONS_TASK_1
